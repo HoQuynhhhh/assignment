@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Mobile - Tính Hiệu</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        /* Dùng màu khác (đỏ) để phân biệt với trang tính tổng */
+        .calc-container { background: #fff1f1; padding: 20px; border-radius: 10px; display: inline-block; border: 1px solid #ffcccc; }
+        input { width: 60px; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; cursor: pointer; background-color: #dc3545; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #c82333; }
+        #resultMinus { font-weight: bold; color: #dc3545; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h2>Chương trình tính hiệu (Minus)</h2>
+
+    <div class="calc-container">
+        <input type="number" id="sub1" placeholder="Số A">
+        <span>-</span>
+        <input type="number" id="sub2" placeholder="Số B">
+        <button onclick="calculateMinus()">Trừ ngay</button>
+        <div id="resultMinus">Kết quả: ?</div>
+    </div>
+
+    <script>
+        function calculateMinus() {
+            const n1 = parseFloat(document.getElementById('sub1').value);
+            const n2 = parseFloat(document.getElementById('sub2').value);
+            const display = document.getElementById('resultMinus');
+
+            if (isNaN(n1) || isNaN(n2)) {
+                display.innerText = "Nhập số vào đã bạn ơi!";
+            } else {
+                const diff = n1 - n2;
+                display.innerText = "Kết quả phép trừ: " + diff;
+            }
+        }
+    </script>
+
+</body>
+</html>
