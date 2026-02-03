@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Mobile - Tính Tích</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        /* Tông màu vàng cam cho phép nhân */
+        .calc-container { background: #fffdf1; padding: 20px; border-radius: 10px; display: inline-block; border: 1px solid #ffeeba; }
+        input { width: 60px; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; cursor: pointer; background-color: #ffc107; color: #212529; border: none; border-radius: 5px; font-weight: bold; }
+        button:hover { background-color: #e0a800; }
+        #resultMul { font-weight: bold; color: #856404; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h2>Chương trình tính nhân (Multiply)</h2>
+
+    <div class="calc-container">
+        <input type="number" id="mul1" placeholder="Số A">
+        <span>x</span>
+        <input type="number" id="mul2" placeholder="Số B">
+        <button onclick="calculateMultiply()">Nhân ngay</button>
+        <div id="resultMul">Kết quả: ?</div>
+    </div>
+
+    <script>
+        function calculateMultiply() {
+            const n1 = parseFloat(document.getElementById('mul1').value);
+            const n2 = parseFloat(document.getElementById('mul2').value);
+            const display = document.getElementById('resultMul');
+
+            if (isNaN(n1) || isNaN(n2)) {
+                display.innerText = "Hãy nhập đủ cả 2 số nhé!";
+            } else {
+                const product = n1 * n2;
+                display.innerText = "Kết quả phép nhân: " + product;
+            }
+        }
+    </script>
+
+</body>
+</html>
