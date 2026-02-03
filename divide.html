@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Mobile - Tính Thương</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; }
+        /* Tông màu tím xanh cho phép chia */
+        .calc-container { background: #f1f5ff; padding: 20px; border-radius: 10px; display: inline-block; border: 1px solid #cce5ff; }
+        input { width: 60px; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        #resultDiv { font-weight: bold; color: #004085; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h2>Chương trình tính chia (Divide)</h2>
+
+    <div class="calc-container">
+        <input type="number" id="div1" placeholder="Số A">
+        <span>/</span>
+        <input type="number" id="div2" placeholder="Số B">
+        <button onclick="calculateDivide()">Chia ngay</button>
+        <div id="resultDiv">Kết quả: ?</div>
+    </div>
+
+    <script>
+        function calculateDivide() {
+            const n1 = parseFloat(document.getElementById('div1').value);
+            const n2 = parseFloat(document.getElementById('div2').value);
+            const display = document.getElementById('resultDiv');
+
+            if (isNaN(n1) || isNaN(n2)) {
+                display.innerText = "Vui lòng nhập số!";
+                display.style.color = "red";
+            } else if (n2 === 0) {
+                display.innerText = "Lỗi: Không thể chia cho 0!";
+                display.style.color = "red";
+            } else {
+                const quotient = n1 / n2;
+                // Làm tròn đến 2 chữ số thập phân cho đẹp
+                display.innerText = "Kết quả: " + quotient.toFixed(2);
+                display.style.color = "#004085";
+            }
+        }
+    </script>
+
+</body>
+</html>
